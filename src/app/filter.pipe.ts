@@ -5,11 +5,11 @@ import { Pipe, PipeTransform } from '@angular/core';
     pure: false
 })
 export class FilterPipe implements PipeTransform {
-    transform(books: any, term: any): any {
+    transform(value: any, term: any): any {
         //check if search term is undefined
-        if (term === undefined) return books;
-        //return updated employees array
-        return books.filter((book)=>{
+        if (term === undefined) return value;
+        //return updated books array
+        return value.filter((book)=>{
           return book.bookName.toLowerCase().includes(term.toLowerCase());
         })
       }

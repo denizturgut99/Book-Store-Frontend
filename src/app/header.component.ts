@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
             <nav class="navbar navbar-light bg-light justify-content-between">
                 <a class="navbar-brand"><i class="fas fa-book"></i></a>
                 <form id="bookSearch">
-                    <input id="searchBooks" class="inputBar" type="text" [(ngModel)]="term" name="something" placeholder="Search for books">
+                    <input id="searchBooks" class="inputBar" type="text" [(ngModel)]="term" name="bookFilter" placeholder="Search for books">
                 </form>
             </nav>
             <div class='flexWrap col-sm'>

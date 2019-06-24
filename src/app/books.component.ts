@@ -32,7 +32,6 @@ export class BooksComponent {
 
     allBooks;
     bookData;
-    filteredBooks;
     buttons = [];
 
     constructor() {
