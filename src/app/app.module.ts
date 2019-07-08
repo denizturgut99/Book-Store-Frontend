@@ -1,10 +1,12 @@
+import { FilterLang } from './langFilter.pipe';
 import { MainComponent } from './header.component';
 import { BooksService } from './books.service';
 import { BooksComponent } from './books.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './filter.pipe';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,16 +16,20 @@ import { AppComponent } from './app.component';
     AppComponent,
     BooksComponent,
     MainComponent,
-    FilterPipe
+    FilterPipe,
+    FilterLang
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     BooksService,
-    FilterPipe
+    FilterPipe,
+    FilterLang
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-    name: 'filter',
+    name: 'filterName',
     pure: false
 })
 export class FilterPipe implements PipeTransform {
@@ -10,7 +10,8 @@ export class FilterPipe implements PipeTransform {
         if (term === undefined) return value;
         //return updated books array
         return value.filter((book)=>{
-          return book.bookName.toLowerCase().includes(term.toLowerCase());
+          let nameFilter = book.bookName.toLowerCase().includes(term.toLowerCase());
+          return nameFilter
         })
       }
 }

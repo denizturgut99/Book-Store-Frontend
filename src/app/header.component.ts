@@ -1,5 +1,6 @@
 import { BooksComponent } from './books.component';
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn } from '@angular/forms';
 
 @Component({
     selector: 'main',
@@ -15,35 +16,19 @@ import { Component } from '@angular/core';
                     <input id="searchBooks" class="inputBar" type="text" [(ngModel)]="term" name="bookFilter" placeholder="Search for books">
                 </form>
             </nav>
-            <div class='flexWrap col-sm'>
-                <div class="container">
-                    <p class="welcomeText">Hello! Welcome to our book store. If you're looking for a specific book, you can use the search bar or use one of the buttons below.</p>
-                </div>
 
-                <div class="container">
-                    <label> Spanish
-                        <input id="input1" type="checkbox" value="es" (click)="languageFilter(event)">
-                    </label>
-
-                    <label class="space"> English
-                        <input id="input2" type="checkbox" value="en" (click)="languageFilter(event)">
-                    </label>
-
-                    <label class="space"> Catalan
-                        <input id="input3" type="checkbox" value="ca" (click)="languageFilter(event)">
-                    </label>
-                </div>
-
+            <div class="container">
+                <p class="welcomeText">Hello! Welcome to our book store. If you're looking for a specific book, you can use the search bar or use one of the buttons below.</p>
             </div>
 
             <div class="container" *ngIf='term'>
-                <p class="welcomeText"> You searched for: {{term}} </p>
+                <p class="welcomeText"> You are searching for: {{term}} </p>
             </div>
 
             <books [search-term]="term"></books>
 `
 })
 
-export class MainComponent { 
-    
+export class MainComponent {
+   
 }

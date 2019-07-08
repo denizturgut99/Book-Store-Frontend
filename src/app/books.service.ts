@@ -1,41 +1,13 @@
+import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http';
+import { IBooks } from './books';
+import { Observable } from 'rxjs';
 
+@Injectable()
 export class BooksService {
-    allBooks;
-    bookData;
+    constructor(private http: HttpClient) {  }
 
-    constructor() {
-        this.getBooks()
+    getBooks(): Observable<IBooks[]> {
+        return this.http.get<IBooks[]>("http://localhost:8080/api/books")
     }
-
-    getBooks() {
-        let url = 'http://localhost:8080/api/books';
-        return fetch(url, {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            }
-        })
-        .then(response => {
-            return response.json()
-        })
-        .then(json => {
-            this.allBooks = json;
-            this.getData()
-            // console.log(this.allBooks);  
-        })
-        .catch(error => console.log(error))
-    }
-
-    getData() {
-        let allBooks = this.allBooks;
-        
-        let books = allBooks['books']
-        this.bookData = books;
-    }
-
-    getBooksData() {
-        return this.bookData;
-    }
-
 }
