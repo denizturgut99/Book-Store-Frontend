@@ -7,16 +7,7 @@ import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn, ReactiveFo
 @Component({
     selector: 'books',
     template: `
-                <div class='flexWrap col-sm'>
-                    <div class="container">
-                        <form [formGroup]="bookForm" (ngSubmit)="submit()">
-                            <label formArrayName="bookPreferences" *ngFor="let book of bookForm.controls.bookPreferences.controls; let i = index">
-                                <input name="filter" type="checkbox" [formControlName]="i"> {{ book[i].bookLang }}
-                            </label>
-                            <button>Submit</button>
-                        </form> 
-                    </div>
-                </div>
+                
                 
                 <div class="container">
                     <div class="miniBooks" *ngFor="let book of bookData | filterName:term">
@@ -58,11 +49,7 @@ export class BooksComponent implements OnInit {
         this.booksService.getBooks()
                 .subscribe(data => {this.bookData = data['books']; console.log(this.bookData)})
         // Create a FormControl for each available music preference, initialize them as unchecked, and put them in an array
-        const formControls = this.bookData.map(control => new FormControl(false));
-        // Simply add the list of FormControls to the FormGroup as a FormArray
-        this.bookForm = this.formBuilder.group({
-            bookData: new FormArray(formControls),
-        })
+        
     }
 
     ngOnInit() {
