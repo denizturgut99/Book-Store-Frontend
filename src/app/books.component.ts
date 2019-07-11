@@ -6,9 +6,7 @@ import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn, ReactiveFo
 
 @Component({
     selector: 'books',
-    template: `
-                
-                
+    template: ` 
                 <div class="container">
                     <div class="miniBooks" *ngFor="let book of bookData | filterName:term">
                         <div class="flip-card">
@@ -40,16 +38,10 @@ export class BooksComponent implements OnInit {
     langs;
     buttons = [];
 
-    // constructor(private booksService: BooksService) {
-
-    // }
-
     constructor(private booksService: BooksService, private formBuilder: FormBuilder) {
         // this.bookData = booksService.getBooks()
         this.booksService.getBooks()
                 .subscribe(data => {this.bookData = data['books']; console.log(this.bookData)})
-        // Create a FormControl for each available music preference, initialize them as unchecked, and put them in an array
-        
     }
 
     ngOnInit() {
